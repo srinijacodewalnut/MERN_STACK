@@ -1,0 +1,33 @@
+{
+  "name": "react-bun-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.4",
+  "engines": {
+    "bun": ">=1.3.0"
+  },
+  "scripts": {
+    "dev": "bun run --parallel dev:backend dev:frontend",
+    "dev:frontend": "bun --bun vite --config frontend/vite.config.ts",
+    "dev:backend": "bun --watch backend/src/server.ts",
+    "typecheck": "tsc -p frontend/tsconfig.json && tsc -p backend/tsconfig.json",
+    "test": "bun test backend",
+    "build": "bun run typecheck && bun --bun vite build --config frontend/vite.config.ts",
+    "start": "NODE_ENV=production bun backend/src/server.ts",
+    "check": "bun run typecheck && bun test backend"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
